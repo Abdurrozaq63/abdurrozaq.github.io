@@ -24,22 +24,34 @@ header .navbar{
    transition: .5s;
    z-index: 1;
 }
-header .navbar .btn-menu{
+header .navbar h2{
+   position: absolute;
+   left: 10px;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 600;
+   letter-spacing: .2rem;
+   text-transform: uppercase;
+   color: #cc005f;
+}
+header .navbar .wrap-menu .btn-menu{
    display: none;
 }
-header .navbar ul{
+header .navbar .wrap-menu ul{
    display: flex;
    list-style: none;
 }
-header .navbar ul li{
+header .navbar .wrap-menu ul li{
    padding: 0 20px;
 }
-header .navbar ul li a{
+header .navbar .wrap-menu ul li a{
    font-size: 13pt;
    font-weight: 700;
-   color: #cc005f;
+   color: #ffffff;
    text-decoration: none;
    text-transform: uppercase;
+}
+header .navbar .wrap-menu ul li a:hover{
+   color: #cc005f;
 }
 /*content intro*/
 .container{
@@ -49,9 +61,11 @@ header .navbar ul li a{
    justify-content: center;
    background-color: black;
    color: #ffffff;
+   overflow-x: hidden;
 }
 .container .intro{
-   min-width: 600px;
+   max-width: 760px;
+   margin: 0 30px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -125,7 +139,7 @@ header .navbar ul li a{
    transition: .5s;
 }
 .container .scene .about {
-   min-width: 550px;
+   width: 550px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -166,7 +180,7 @@ header .navbar ul li a{
    text-align: center;
 }
 .container .scene .skill{
-   min-width: 500px;
+   width: 500px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -189,7 +203,7 @@ header .navbar ul li a{
    color: #585858;
 }
 .container .scene .skill ul li .progress-percent{
-   width: 450px;
+   max-width: 450px;
    height: 10px;
    margin: 7px 0;
    background-color: #b9b7b7;
@@ -224,7 +238,7 @@ header .navbar ul li a{
    text-align: center;
 }
 .container .service{
-   min-width: 500px;
+   min-width: 300px;
    height: 100vh;
    display: flex;
    flex-direction: column;
@@ -248,11 +262,13 @@ header .navbar ul li a{
    margin: 20px 0;
    font-size: 30pt;
    font-weight: 700;
+   text-align: center;
    text-transform: capitalize;
 }
 #service .service .main-serv{
    max-width: 1100px;
    height: 400px;
+   margin-top: 22px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -292,8 +308,9 @@ header .navbar ul li a{
 
 /*containt contact*/
 #contact .box-cont{
-   min-width: 400px;
+   min-width: 370px;
    height: 100vh;
+   margin: 0 30px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -301,11 +318,15 @@ header .navbar ul li a{
 }
 #contact .box-cont h3{
    margin: 0;
+   font-size: 17pt;
+   color: #cc005f;
+   text-transform: uppercase;
 }
 #contact .box-cont h1{
    font-size: 35pt;
    text-transform: capitalize;
    font-weight: 600;
+   text-align: center;
 }
 #contact .box-cont .box-form{
    width: 100%;
@@ -406,12 +427,14 @@ header .navbar ul li a{
    text-transform: capitalize;
 }
 
+
+
 @media screen and (max-width: 920px ) {
    #about{
       align-items: center;
    }
-   #about .scene{
-      transform: rotateY(0deg);
+   .abrot{
+      transform: rotateY(-180deg);
    }
    #about .scene .about{
       position: absolute;
@@ -449,7 +472,11 @@ header .navbar ul li a{
    }
 }
 
+
 @media screen and (max-width: 845px) {
+   #home .intro h1{
+      font-size: 4rem;
+   }
    .service{
       perspective: 900px;
    }
@@ -463,29 +490,29 @@ header .navbar ul li a{
       transition: .5s;
    }
    .cube1{
-      transform: translateX(0px);
+      transform: rotateY(-90deg) translateZ(129px);
    }
    .cube2{
-      transform: translateX(-300px);
+      transform: rotateY(0deg) translateZ(129px);
    }
    .cube3{
-      transform: translateX(-300px);
+      transform: rotateY(90deg) translateZ(129px); 
    }
    /*scene service play*/
    .clk-cb1{
-      transform: translateX(0px);
+      transform: translateZ(-120px) rotateY(90deg);
    }
    .clk-cb2{
-      transform: translateZ(0px);
+      transform: translateZ(-120px) rotateY(0deg);
    }
    .clk-cb3{
-      transform: translateZ(0px);
+      transform: translateZ(-120px) rotateY(-90deg);
    }
 
 
    #service .btn-scn{
       position: relative;
-      bottom: 20px;
+      bottom: 30px;
       width: 80px;
       height: 20px;
       margin: 0 auto;
@@ -499,5 +526,96 @@ header .navbar ul li a{
     border-radius: 18px;
     transition: .5s;
     cursor: pointer;
+   }
+   .closing .box-foot{
+      flex-direction: column;
+   }
+}
+
+
+@media screen and (max-width: 745px){
+   header .navbar .wrap-menu{
+      position: absolute;
+      top: 0;
+      width: 160px;
+      height: 55px;
+      overflow-y: hidden;
+      background-color: black;
+      transition: .5s;
+   }
+   header .navbar .wrap-menu .btn-menu{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 22px;
+      cursor: pointer;
+   }
+   header .navbar .wrap-menu .btn-menu span{
+      font-size: 35px;
+      font-weight: 700;
+      color: #cc005f;
+      line-height: unset;
+   }
+   header .navbar .wrap-menu ul{
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 55px 13px 0 0;
+      padding: 0 0 12px 20px;
+      background-color: black;
+   }
+   .visible{
+      height: 335px !important;
+   }
+   header .navbar .wrap-menu ul li{
+      margin: 21px 0;
+   }
+   header .navbar .wrap-menu ul li a{
+      color: #ffffff;
+      transition: .5s;
+   }
+   header .navbar .wrap-menu ul li a:hover{
+      color: #cc005f;
+      margin-right: 8px;
+   }
+   #home .intro h1{
+      font-size: 4rem;
+   }
+   #home .intro .job{
+      flex-direction: column;
+      justify-content: center;
+   }
+   #home .intro .job h5{
+      border: unset;
+      text-align: center;
+      margin: 10px 0;
+      padding: 0;
+   }
+   #about .scene .about{
+      margin: 0 10px;
+   }
+   #about .scene .skill{
+      margin: 0 10px;
+   }
+}
+@media screen and (max-width: 411px){
+   #home .intro .h1{
+      font-size: 3rem;
+   }
+   #about .scene .about{
+      width: 375px;
+      height: 500px;
+      margin: 15px 10px;
+   }
+   #about .scene .skill{
+      width: 375px;
+      height: 500px;
+      margin: 15px 10px;
    }
 }
