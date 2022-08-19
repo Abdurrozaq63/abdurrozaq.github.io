@@ -15,6 +15,7 @@ let cs = document.querySelectorAll('.btn-rotate')
 let cube = document.querySelector('.main-serv')
 let scn = document.querySelectorAll('.scn');
 
+
 //sticky navabar
 body.addEventListener('wheel', function(e){
    var scrl = e.deltaY;
@@ -25,25 +26,55 @@ body.addEventListener('wheel', function(e){
       nav.style.transform = "translateY(0px)";
    }
 })
+
+//navbar button
+let wm = document.querySelector('.wrap-menu');
+let bv = document.querySelector('.btn-menu');
+let ul = document.querySelector('ul');
+
+bv.addEventListener('click', function(){
+   wm.classList.toggle('visible');
+})
+
+
+
 //rotate about containt responsive
 cs[0].addEventListener('click', function(){
    cs[0].style.background = "#cc005f";
    cs[1].style.background = "none";
-   scene.style.transform = "rotateY(0deg)";
+   scene.classList.remove('abrot');
 })
 cs[1].addEventListener('click', function(){
    cs[1].style.background = "#cc005f";
    cs[0].style.background = "none";
-   scene.style.transform = "rotateY(-180deg)";
+   scene.classList.add('abrot');
 })
 
 
 
 scn[0].addEventListener('click', function(){
-   cube.style.transform = "translateX(0px)"
+   cube.classList.remove('clk-cb2', 'clk-cb3');
+   cube.classList.add('clk-cb1');
+   scn.forEach(function(u){
+      u.style.background = "none";
+   })
+   this.style.background = "#cc005f";
 })
 scn[1].addEventListener('click', function(){
-   cube.style.transform = "translateX(0px)"
+   cube.classList.remove('clk-cb1', 'clk-cb3');
+   cube.classList.add('clk-cb2');
+   scn.forEach(function(u){
+      u.style.background = "none";
+   })
+   this.style.background = "#cc005f";
+})
+scn[2].addEventListener('click', function(){
+   cube.classList.remove('clk-cb2', 'clk-cb1');
+   cube.classList.add('clk-cb3');
+   scn.forEach(function(u){
+      u.style.background = "none";
+   })
+   this.style.background = "#cc005f";
 })
 
 /*
