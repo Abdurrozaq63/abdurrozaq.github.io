@@ -17,14 +17,18 @@ let scn = document.querySelectorAll('.scn');
 
 
 //sticky navabar
-body.addEventListener('wheel', function(e){
-   var scrl = e.deltaY;
-   if(scrl == 100){
-      nav.style.transform = "translateY(-65px)";
-   }
-   else{
+var prev = window.pageYOffset;
+window.addEventListener('scroll', function() {
+   var curr = window.pageYOffset;
+   if (prev > curr) {
       nav.style.transform = "translateY(0px)";
    }
+   else{
+      nav.style.transform = "translateY(-50px)";
+   }
+   prev = curr;
+   console.log(prev);
+   console.log(curr);
 })
 
 //navbar button
@@ -76,58 +80,3 @@ scn[2].addEventListener('click', function(){
    })
    this.style.background = "#cc005f";
 })
-
-/*
-a.forEach(function(e){
-   e.addEventListener('wheel', function(u){
-      var d = u.deltaY;
-      
-      if(d==100){
-         window.scrollTo(0, h);
-         console.log("success")
-      }
-      else{
-         window.scrollTo(0, -h);
-         console.log("failed");
-      }
-   })
-})
-
-
-a[0].addEventListener('wheel', function(u){
-   var d = u.deltaY;
-   if(d == 100){
-      a[1].scrollIntoView();
-   }
-   else{
-      
-   }
-})
-a[1].addEventListener('wheel', function(u){
-   var d = u.deltaY;
-   if(d == 100){
-      a[2].scrollIntoView();
-   }
-   else{
-      a[0].scrollIntoView();
-   }
-})
-a[2].addEventListener('wheel', function(u){
-   var d = u.deltaY;
-   if(d == 100){
-      a[3].scrollIntoView();
-   }
-   else{
-      a[1].scrollIntoView();
-   }
-})
-a[3].addEventListener('wheel', function(u){
-   var d = u.deltaY;
-   if(d == 100){
-   
-   }
-   else{
-      a[2].scrollIntoView();
-   }
-})
-*/
